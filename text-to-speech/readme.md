@@ -8,7 +8,7 @@
 
 ## How to use:
 1. import the module:
-    `import text-to-speech`
+    `import textToSpeech`
 2. pass argument:
-    `text-to-speech.tts("Hey this is cool")`
+    `textToSpeech.tts("Hey this is cool")`
 3. ta-da! The audio plays.
