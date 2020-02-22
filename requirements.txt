@@ -1,2 +1,1 @@
-pip install gTTs
-apt install mpg123
+gTTs
