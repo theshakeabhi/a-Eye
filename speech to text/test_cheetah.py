@@ -19,15 +19,18 @@ from cheetah import Cheetah
 class CheetahTestCase(unittest.TestCase):
     def test_transcribe(self):
         def abs_path(rel_path):
-            return os.path.join(os.path.dirname(__file__), '../..', rel_path)
+            return os.path.join(os.path.dirname(__file__), rel_path)
+
+        cur_dir = os.getcwd()
+        print(cur_dir)
 
         cheetah = Cheetah(
-            library_path=abs_path('/home/nithin/project1/libpv_cheetah.so'),
-            acoustic_model_path=abs_path('/home/nithin/project1/acoustic_model.pv'),
-            language_model_path=abs_path('/home/nithin/project1/language_model.pv'),
-            license_path=abs_path('/home/nithin/project1/cheetah_eval_linux_public.lic'))
+            library_path=abs_path('libpv_cheetah.so'),
+            acoustic_model_path=abs_path('acoustic_model.pv'),
+            language_model_path=abs_path('language_model.pv'),
+            license_path=abs_path('cheetah_eval_linux_public.lic'))
 
-        audio, sample_rate = soundfile.read(abs_path('/home/nithin/project1/audio_samples/test.wav'), dtype='int16')
+        audio, sample_rate = soundfile.read(abs_path('audio_samples/test.wav'), dtype='int16')
         assert sample_rate == cheetah.sample_rate
 
         transcript = ''
